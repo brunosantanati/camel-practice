@@ -17,7 +17,7 @@ public class RouteThatCallsApi extends RouteBuilder {
         from("timer:start-handling-exception?period=10000")
                 .routeId("route-that-calls-api")
                 .doTry()
-                    .toD("http://localhost:3000/")
+                    .toD("http://localhost:3000/") // Run 'node server.js' inside camel-practice/camel-playground/fake-api before making this call
                 .doCatch(Exception.class)
                 .process(exceptionProcessor)
         ;
